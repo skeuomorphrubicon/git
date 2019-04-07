@@ -1,0 +1,98 @@
+<!-- General doctype and html render setup -->
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<link rel="stylesheet" type="text/css" media="all" href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          
+	</head>
+	<body>
+	
+<!-- General navigation bar boiler plate -->
+
+	<div th:fragment="navbar-user">
+		<div class="container">
+			<div class="navbar-header">Navbar Title</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Navbar Link</a></li>
+					<li><a href="#">Navbar Link 2</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div th:fragment="navbar-admin">
+	
+	</div>
+	
+	<div th:fragment="navbar-staff">
+	
+	</div>
+	
+	<div th:fragment="footer">
+	
+	</div>
+	
+<!--Table for claims made by a single user.
+requires an array $userClaims-->
+
+	<div th:fragment="user-claim-table">
+		<div class="container">
+			<h2>Claims Table</h2>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Claimed (date)</th>
+						<th>Title</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr th:block th:each="claim : ${userClaims}">
+					<td th:text="${claim.created}">date created placeholder</td>
+					<td th:text="${claim.title}">claim title placeholder</td>
+					<td th:text="${claim.status}">status placeholder</td>
+					<td><a th:href=@{/claim/${claim.id}} class="btn btn-info">Review</a>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<!-- Form for the claim DAO -->
+	
+	<div th:fragment="claim-form">
+	<div th:object="${session.user}"
+	<h2>Claim Form</h2>
+	<form action="/claim/submit">
+		<div class="form-row">
+			<div class="col-md-4 mb-3">
+			<label for="claimformtitle">Label your claim.</label>
+			<input type="text" class="form-control" id="claimformtitle" placeholder="Title" required>
+			</div>
+		</div>
+		<div class="form-row">
+			<span class="input-group-text">
+			<label for="claimformsummary">Summarize your claim.</label></span>
+			<textarea class="form-control" id="claimformsummary" placeholder="Please describe the issue." required></textarea>
+		</div>
+		<div class="invisible">
+			<div class="hidden" th:hidden>
+				<input type="text" th:text="*{user}" value="user" id="claimformuser">
+				<input type="text" th:text="*{user.address}" value="address" id="claimformaddress">		
+			</div>
+		</div>
+		<div class="form-row">
+			<button class="btn btn-primary" type="submit">Submit your claim!</button>
+		</div>
+	</form>
+	</div>
+	
+	</body
+></html>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import claim.User;
 import claim.UserRepository;
 
-@Controller    // This means that this class is a Controller
+@RestController    // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
 public class MainController {
 	@Autowired // This means to get the bean called userRepository
@@ -34,5 +34,68 @@ public class MainController {
 	public @ResponseBody Iterable<User> getAllUsers() {
 		// This returns a JSON or XML with the users
 		return userRepository.findAll();
+	}
+	
+	@RequestMapping("/login")
+	public String logIn() {
+		return "login.html";
+	}
+	
+	@RequestMapping("/signup")
+	public String signUp(Model model, @RequestParam String name, @RequestParam String email) {
+		if(validateName(name == true)) {
+			if(validateEmail(email == true)) {
+				User newUser = new User();
+				newUser.setName(name);
+				newUser.setEmail(email);
+				userRepository.save(newUser);
+		learn		model.addAttribute( "You are now signed up! Please try to log in.", "message");
+				return "login.html";
+			} 
+		}
+		model.addAttribute( "Please try again with a valid name and email.", "error");
+		return "signup.html";
+	}
+	
+	@RequestMapping("/user")
+	public String userDash (Model model, @RequestParam Long id) {
+		User aUser = userRepository.findByid(id);
+		if(aUser) {
+		model.addAttribute( aUser, "aUser");
+		return "userDash.html";
+		}
+		model.addAttribute( "Please sign up first.", "error");
+		return "login.html";
+	}
+	
+	@RequestMapping("/admin")
+	public String adminDash (Model model, @RequestParam Long id) {
+		User anAdmin = userRepository.findByid(id);
+		if(anAdmin.role == "ADMIN") {
+			model.addAttribute( anAdmin, "anAdmin");
+			return "adminDash.html";
+		}
+		model.addAttribute( "Please log in with an Administrator account first.", "error");
+		return "login.html";
+	}
+	
+	@RequestMapping("/staff")
+	public String staffDash (Model model, @RequestParam Long id) {
+		User aStaff = userRepository.findByid(id);
+		if(aStaff.role == "STAFF") {
+			model.addAttribute( aStaff, "aStaff");
+			return "staffDash.html";
+		}
+		model.addAttribute( "Please log in with a Staff account first.", "error");
+		return "login.html";
+	}
+	
+	@RequestMapping("/claim/submit")(method="POST")
+	public String submitClaim (Model model, @RequestParam String claimformtitle, @RequestParam String claimformsummary, @RequestParam User claimformuser, @RequestParam String claimformaddress) {
+		Claim aclaim = new Claim(claimformtitle, claimformuser, claimformaddress, claimformsummary);
+				claimRepository.save(aclaim);
+				model.addAttribute(claimformuser, "aUser")
+				return "userDash.html"
+		
 	}
 }

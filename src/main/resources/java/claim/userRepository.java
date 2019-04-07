@@ -1,6 +1,7 @@
 package claim;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.*
 
 import claim.User;
 
@@ -8,5 +9,6 @@ import claim.User;
 // CRUD refers Create, Read, Update, Delete
 
 public interface UserRepository extends CrudRepository<User, Integer> {
+	
 
 }

@@ -1,32 +1,64 @@
 package claim;
 
+import java.io.Serializable;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class User {
+public class User implements Serializable{
+	
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue
+    private Long id;
+    
+    @Column(nullable = false)
+    private Enum role;
 
+    @Column(nullable = false)
     private String name;
-
+    
+    @Column(nullable = false)
     private String email;
     
+    @Column(nullable = false)
     private String address;
+    
+    @OneToMany(mapped By = "claimant", cascade = CascadeType.ALL, orphanRemoval = false)
+    private ArrayList<Claim> claims = new ArrayList<>();
+    
+    protected User() {
+    	
+    }
+    
+    public User(Enum role, String name, String email, String address) {
+    	this.role = role;
+    	this.name = name;
+    	this.email = email;
+    	this.address = address;
+    }
+    
 
-	public Integer getId() {
-		return id;
+	public Long getId() {
+		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Enum getRole() {
+		return this.role;
+	}
+	
+	public void setRole(Enum role) {
+		this.role = role;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -34,7 +66,7 @@ public class User {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -42,7 +74,7 @@ public class User {
 	}
 	
 	public String getAddress() {
-		return address;
+		return this.address;
 	}
 	
 	public void setAddress(String address) {
