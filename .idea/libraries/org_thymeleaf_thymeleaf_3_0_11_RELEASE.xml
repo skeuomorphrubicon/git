@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="org.thymeleaf:thymeleaf:3.0.11.RELEASE" type="repository">
+    <properties maven-id="org.thymeleaf:thymeleaf:3.0.11.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/thymeleaf-3.0.11.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/ognl-3.1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/javassist-3.20.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/attoparser-2.0.5.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/unbescape-1.1.6.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/slf4j-api-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
