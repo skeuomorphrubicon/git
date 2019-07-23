@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="springframework:spring-web:1.2.6" type="repository">
+    <properties maven-id="springframework:spring-web:1.2.6" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-web-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/jstl-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-context-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-aop-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-beans-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-core-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/commons-collections-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/commons-logging-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/oro-2.0.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/standard-1.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

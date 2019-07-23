@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="org.springframework.boot:spring-boot:2.1.6.RELEASE" type="repository">
+    <properties maven-id="org.springframework.boot:spring-boot:2.1.6.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-boot-2.1.6.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-core-5.1.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-jcl-5.1.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-context-5.1.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-aop-5.1.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-beans-5.1.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Dependency Libraries/spring-expression-5.1.8.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

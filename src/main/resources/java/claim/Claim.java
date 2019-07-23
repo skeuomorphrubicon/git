@@ -1,13 +1,12 @@
 package claim;
 
-import java.time.LocalDate;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import java.time.LocalDate;
 
 @Entity 
 @ConfigurationProperties

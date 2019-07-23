@@ -9,9 +9,9 @@
     </option>
   </component>
   <component name="ProjectResources">
-    <resource url="http://www.thymeleaf.org" location="" />
+    <resource url="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd" location="$PROJECT_DIR$/../Dependency Libraries/xhtml1-strict-thymeleaf-4.dtd" />
     <resource url="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" location="" />
-    <resource url="htttp://www.thymeleaf.org" location="$PROJECT_DIR$" />
+    <resource url="htttp://www.thymeleaf.org" location="$PROJECT_DIR$/../Dependency Libraries/thymeleaf-3.0.11.RELEASE.jar!/org/thymeleaf/xml/thymeleaf/Standard-Dialect.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
