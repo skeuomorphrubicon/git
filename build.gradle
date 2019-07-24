@@ -1,0 +1,45 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'com.gradle.build-scan' version '2.0.2'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'groovy'
+    id 'application'
+    id 'org.gretty' version '2.2.0'
+}
+
+application {
+    mainClassName = 'claim.application.java'
+}
+
+buildScan {
+    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+    termsOfServiceAgree = 'yes'
+}
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.0.5.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework:spring-web:5.0.2.RELEASE'
+    implementation 'org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE'
+    implementation 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
+    implementation 'org.hibernate:hibernate-core:5.4.3.Final'
+
+    testRuntimeOnly 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'junit:junit:4.12'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+    }
+}
