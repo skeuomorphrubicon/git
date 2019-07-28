@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
 plugins {
     id 'idea'
     id 'java'
@@ -40,6 +42,6 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+        mavenBom(SpringBootPlugin.BOM_COORDINATES)
     }
 }
